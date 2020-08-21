@@ -25,6 +25,9 @@ class SaveUser{
      */
 	public function save(User $user,$updated = false)
 	{   
+	    if(empty($user->getFirstname()) || empty($user->getLastname())){
+		    return array(array("message" => "L'utilisateur n'a pas été créé" ),"status" => Response::HTTP_NOT_FOUND);
+		}
 		if( !$updated ){
             $user->setCreationdate( new \Datetime() );
             $user->setUpdatedate( new \Datetime());
