@@ -71,6 +71,7 @@ class UserController extends AbstractController
      */
     public function showUser(User $user): JsonResponse
     {    
+	    echo 'hello hi!'; 
         return $this->json($user);
     }
      
